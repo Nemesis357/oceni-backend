@@ -3,16 +3,17 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use \App\City;
 
-class DatabaseSeeder extends Seeder
+class CityTableSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        \App\Models\City::factory(30)->create();
+        factory(City::class)->create();
     }
 }

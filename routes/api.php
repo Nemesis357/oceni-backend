@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CityController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,5 +24,10 @@ Route::get('/getConfig', function () {
     //     "username"->"Nenad Nikolic",
     //     "date"->"29.10.2020",
     // }];
+
     return "TEST STRING";
 });
+
+Route::post('/city/{city}', [CityController::class, 'getCity']);
+Route::post('/cityAutocomplete', [CityController::class, 'getCityAutoComplete']);
+Route::get('/city', [CityController::class, 'getCities']);
