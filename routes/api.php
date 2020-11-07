@@ -20,12 +20,25 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('/getConfig', function () {
-    // return [{
-    //     "username"->"Nenad Nikolic",
-    //     "date"->"29.10.2020",
-    // }];
+    // $config = [];
+    $user = [
+        'firstName' => 'Nenad',
+        'lastName'  => 'Nikolic',
+    ];
+    $mainMenu = [
+        'controlls' => [
+            'city' => [
+                'type' => 'autoComplete',
+                'title' => 'City',
+            ],
+            'category' => [
+                'type' => 'checkbox',
+                'title' => 'Category',
+            ],
+        ]
+    ];
 
-    return "TEST STRING";
+    return response()->json(array('user'=>$user, 'mainMenu'=>$mainMenu));
 });
 
 Route::post('/city/{city}', [CityController::class, 'getCity']);
